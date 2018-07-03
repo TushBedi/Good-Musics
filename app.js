@@ -1,0 +1,7 @@
+const express = require('express')
+const app = express()
+let route = require('./routes/index.js')
+let user - require('./routes/users.js')
+app.use(route)
+app.use(user)
+app.listen(3000, () => console.log('Example app listening on port:V 3000!'))

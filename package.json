@@ -1,0 +1,27 @@
+{
+  "name": "goodmusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handipriyono/Good-Musics.git"
+  },
+  "author": "handi priyono",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/handipriyono/Good-Musics/issues"
+  },
+  "homepage": "https://github.com/handipriyono/Good-Musics#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "pg": "^7.4.3",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0"
+  }
+}
