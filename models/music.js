@@ -9,5 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Music.belongsToMany(models.User, {through : "MusicUser"})
   };
+
+
+
+
+
+
   return Music;
 };
