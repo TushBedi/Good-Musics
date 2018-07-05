@@ -3,7 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   var MusicUser = sequelize.define('MusicUser', {
     UserId: DataTypes.INTEGER,
     MusicId: DataTypes.INTEGER,
-    playlistName: DataTypes.STRING
+    playlistName: {
+      type : DataTypes.STRING,
+      validate : {
+        args : true,
+        msg : "Playlist Name is required"
+      }
+    }
   }, {});
   MusicUser.associate = function (models) {
     // associations can be defined here
