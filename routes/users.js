@@ -3,6 +3,7 @@ var router = express.Router()
 let models = require('../models')
 let User = models.User
 const helperpass = require('../helperpass')
+let mails = require('../mail')
 
 
 router.get('/register', function (req, res, next) {
@@ -29,6 +30,7 @@ router.post('/register', function (req, res) {
       password: helperpass(req.body.password) // => helperpass(req.body.password) // atau dibuat di model aja
     })
     .then(function () {
+      mails(req.body.email, req.body.name)
       res.redirect('/login')
     })
     .catch(function (err) {
@@ -44,10 +46,6 @@ router.post('/register', function (req, res) {
 })
 
 
-
-// router.get('/login', function (req, res) {
-//   res.render('login')
-// })
 
 router.get('/login', function (req, res, next) {
 
@@ -74,8 +72,9 @@ router.post('/login', function (req, res) {
       }
     })
     .then(function (userr) {
-      console.log(userr)
+      console.log('---------------', userr)
       if (userr) {
+
         req.session.current_user = userr
         res.redirect('/musics') //ke dashboard
       } else {
@@ -118,13 +117,5 @@ router.get('/logout', function (req, res) {
 //
 //
 // })
-
-
-
-
-
-
-
-
 
 module.exports = router
