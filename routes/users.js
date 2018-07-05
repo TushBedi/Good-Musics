@@ -2,9 +2,10 @@ var express = require('express')
 var router = express.Router()
 let models = require('../models')
 let User = models.User
-const helperpass = require('../helperpass')
+// const helperpass = require('../helperpass')
 let mails = require('../mail')
 
+const bcrypt = require('bcrypt')
 
 router.get('/register', function (req, res, next) {
 
@@ -27,7 +28,7 @@ router.post('/register', function (req, res) {
   User.create({
       name: req.body.name,
       email: req.body.email,
-      password: helperpass(req.body.password) // => helperpass(req.body.password) // atau dibuat di model aja
+      password: req.body.password // => helperpass(req.body.password) // atau dibuat di model aja
     })
     .then(function () {
       mails(req.body.email, req.body.name)
@@ -64,24 +65,46 @@ router.get('/login', function (req, res, next) {
 
 
 router.post('/login', function (req, res) {
-
   User.findOne({
       where: {
         email: req.body.email,
-        password: helperpass(req.body.password) // req.body.password //crypto
+        //  password: req.body.password // req.body.password //crypto
       }
     })
     .then(function (userr) {
-      console.log('---------------', userr)
       if (userr) {
 
-        req.session.current_user = userr
-        res.redirect('/musics') //ke dashboard
+        let pass = bcrypt.compareSync(req.body.password, userr.password);
+
+        if (pass == true) {
+
+
+          req.session.current_user = userr
+          res.redirect('/musics') //ke dashboard
+
+        } else {
+          res.render('login', {
+            msg: "username/pass salah"
+          })
+        }
+
+
+
       } else {
         res.render('login', {
           msg: "username/pass salah"
         })
+
       }
+
+
+
+      // console.log('---------------', userr)
+      // if (pass) {
+      //
+      // } else {
+      //
+      // }
     })
 })
 

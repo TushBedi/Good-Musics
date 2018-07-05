@@ -98,142 +98,138 @@
     <div id="Artist" class="tabcontent">
       <% let i = 1 %>
         <h3>Artist</h3>
-        <%=JSON.stringify(artist)%>
-          <table>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>judul</th>
+            <th>Artist</th>
+            <th>Category</th>
+          </tr>
+          <%artist.forEach(function(dataArtis){%>
+
+
+
+
             <tr>
-              <th>No</th>
-              <th>judul</th>
-              <th>Artist</th>
-              <th>Category</th>
-            </tr>
-            <%artist.forEach(function(dataArtis){%>
-
-
-
-
-              <tr>
+              <td>
+                <%=i%>
+                  <i class="fas fa-play-circle"></i>
+              </td>
+              <%i++%>
                 <td>
-                  <%=i%>
-                    <i class="fas fa-play-circle"></i>
+                  <%=dataArtis.title%>
                 </td>
-                <%i++%>
-                  <td>
-                    <%=dataArtis.title%>
-                  </td>
-                  <td>
-                    <%=dataArtis.artist%>
-                  </td>
-                  <td>
-                    <%=dataArtis.category%>
-                  </td>
-                  <%  }) %>
-              </tr>
+                <td>
+                  <%=dataArtis.artist%>
+                </td>
+                <td>
+                  <%=dataArtis.category%>
+                </td>
+                <%  }) %>
+            </tr>
 
-          </table>
+        </table>
     </div>
 
     <div id="judul" class="tabcontent">
       <% let j = 1 %>
         <h3>Title</h3>
-        <%=JSON.stringify(judul)%>
 
-          <table>
-            <tr>
-              <th>NO </th>
-              <th>judul</th>
-              <th>Artist</th>
-              <th>Category</th>
-            </tr>
-            <tr>
+        <table>
+          <tr>
+            <th>NO </th>
+            <th>judul</th>
+            <th>Artist</th>
+            <th>Category</th>
+          </tr>
+          <tr>
+            <td>
+              <%=j%>
+                <i class="fas fa-play-circle"></i>
+            </td>
+            <%j++%>
               <td>
-                <%=j%>
-                  <i class="fas fa-play-circle"></i>
+                <%=judul.title%>
               </td>
-              <%j++%>
-                <td>
-                  <%=judul.title%>
-                </td>
-                <td>
-                  <%=judul.artist%>
-                </td>
-                <td>
-                  <%=judul.category%>
-                </td>
+              <td>
+                <%=judul.artist%>
+              </td>
+              <td>
+                <%=judul.category%>
+              </td>
 
-            </tr>
+          </tr>
 
-          </table>
+        </table>
     </div>
 
     <div id="Tokyo" class="tabcontent">
       <h3>Category</h3>
       <% let k = 1 %>
-        <%=JSON.stringify(category)%>
-          <table>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>judul</th>
+            <th>Artist</th>
+            <th>Category</th>
+          </tr>
+          <% category.forEach(function(cat){ %>
+
+
             <tr>
-              <th>No</th>
-              <th>judul</th>
-              <th>Artist</th>
-              <th>Category</th>
-            </tr>
-            <% category.forEach(function(cat){ %>
-
-
-              <tr>
+              <td>
+                <%=k%>
+                  <i class="fas fa-play-circle"></i>
+              </td>
+              <%k++%>
                 <td>
-                  <%=k%>
-                    <i class="fas fa-play-circle"></i>
+                  <%=cat.title%>
                 </td>
-                <%k++%>
-                  <td>
-                    <%=cat.title%>
-                  </td>
-                  <td>
-                    <%=cat.artist%>
-                  </td>
-                  <td>
-                    <%=cat.category%>
-                  </td>
+                <td>
+                  <%=cat.artist%>
+                </td>
+                <td>
+                  <%=cat.category%>
+                </td>
 
-                  <%  }) %>
-              </tr>
+                <%  }) %>
+            </tr>
 
-          </table>
+        </table>
     </div>
 
     <div id="Playlist" class="tabcontent">
       <h3>playlist</h3>
       <% let l = 1 %>
-        <%=JSON.stringify(playlist)%>
-          <table>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>Playlist name</th>
+            <th>info</th>
+
+          </tr>
+          <% playlist.forEach(function(plays){ %>
+
+
+
+
             <tr>
-              <th>No</th>
-              <th>Playlist name</th>
-              <th>info</th>
-
-            </tr>
-            <% playlist.forEach(function(plays){ %>
-
-
-
-
-              <tr>
+              <td>
+                <%=l%>
+              </td>
+              <%l++%>
                 <td>
-                  <%=l%>
+                  <%=plays.playlistName%>
                 </td>
-                <%l++%>
-                  <td>
-                    <%=plays.playlistName%>
-                  </td>
-                  <td>
-                    <%=plays.artist%>
-                  </td>
+                <td>
+                  <%=plays.artist%>
+                </td>
 
 
-                  <%  }) %>
-              </tr>
+                <%  }) %>
+            </tr>
 
-          </table>
+        </table>
     </div>
     <script>
       function openCity(evt, cityName) {

@@ -9,13 +9,13 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 let route = require('./routes/index.js')
-let playlist = require('./routes/playlist')
+// let playlist = require('./routes/playlist')
 let find = require('./routes/find')
 let user = require('./routes/users.js')
 let music = require('./routes/musics')
 var bodyParser = require('body-parser')
 var session = require('express-session')
-
+const bcrypt = require('bcrypt')
 const helperpass = require('./helperpass')
 
 
@@ -36,7 +36,7 @@ app.use(session({
 //npm install express session
 // di app ->
 
-app.use("/", playlist)
+// app.use("/", playlist)
 app.use(route)
 app.use(user)
 app.use(music)
