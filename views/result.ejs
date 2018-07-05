@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <style>
+      img {
+        margin-left: 100px;
+        margin-top: 30px
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      body {
+        font-family: Arial;
+      }
+
+      /* Style the tab */
+
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+
+        margin: 0px auto;
+        margin-top: 30px;
+
+        width: 80%
+      }
+
+      /* Style the buttons inside the tab */
+
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      /* Change background color of buttons on hover */
+
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      /* Create an active/current tablink class */
+
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the tab content */
+
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <img class="img" width="150px auto" src="https://cdn.icon-icons.com/icons2/1151/PNG/512/1486505261-eighth-eighth-note-multimedia-player-music-note_81397.png/">
+
+
+    <h3 align="center">pencarian Lagu dengan keyword:  <font color="red"><%=keyword%></font></b></h3>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Artist')"> Artist  </button>
+      <button class="tablinks" onclick="openCity(event, 'judul')">  Judul </button>
+      <button class="tablinks" onclick="openCity(event, 'Tokyo')">  Category </button>
+      <button class="tablinks" onclick="openCity(event, 'Playlist')">  Playlist  </button>
+    </div>
+
+
+
+
+    <div id="Artist" class="tabcontent">
+      <% let i = 1 %>
+        <h3>Artist</h3>
+        <%=JSON.stringify(artist)%>
+          <table>
+            <tr>
+              <th>No</th>
+              <th>judul</th>
+              <th>Artist</th>
+              <th>Category</th>
+            </tr>
+            <%artist.forEach(function(dataArtis){%>
+
+
+
+
+              <tr>
+                <td>
+                  <%=i%>
+                    <i class="fas fa-play-circle"></i>
+                </td>
+                <%i++%>
+                  <td>
+                    <%=dataArtis.title%>
+                  </td>
+                  <td>
+                    <%=dataArtis.artist%>
+                  </td>
+                  <td>
+                    <%=dataArtis.category%>
+                  </td>
+                  <%  }) %>
+              </tr>
+
+          </table>
+    </div>
+
+    <div id="judul" class="tabcontent">
+      <% let j = 1 %>
+        <h3>Title</h3>
+        <%=JSON.stringify(judul)%>
+
+          <table>
+            <tr>
+              <th>NO </th>
+              <th>judul</th>
+              <th>Artist</th>
+              <th>Category</th>
+            </tr>
+            <tr>
+              <td>
+                <%=j%>
+                  <i class="fas fa-play-circle"></i>
+              </td>
+              <%j++%>
+                <td>
+                  <%=judul.title%>
+                </td>
+                <td>
+                  <%=judul.artist%>
+                </td>
+                <td>
+                  <%=judul.category%>
+                </td>
+
+            </tr>
+
+          </table>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Category</h3>
+      <% let k = 1 %>
+        <%=JSON.stringify(category)%>
+          <table>
+            <tr>
+              <th>No</th>
+              <th>judul</th>
+              <th>Artist</th>
+              <th>Category</th>
+            </tr>
+            <% category.forEach(function(cat){ %>
+
+
+              <tr>
+                <td>
+                  <%=k%>
+                    <i class="fas fa-play-circle"></i>
+                </td>
+                <%k++%>
+                  <td>
+                    <%=cat.title%>
+                  </td>
+                  <td>
+                    <%=cat.artist%>
+                  </td>
+                  <td>
+                    <%=cat.category%>
+                  </td>
+
+                  <%  }) %>
+              </tr>
+
+          </table>
+    </div>
+
+    <div id="Playlist" class="tabcontent">
+      <h3>playlist</h3>
+      <% let l = 1 %>
+        <%=JSON.stringify(playlist)%>
+          <table>
+            <tr>
+              <th>No</th>
+              <th>Playlist name</th>
+              <th>info</th>
+
+            </tr>
+            <% playlist.forEach(function(plays){ %>
+
+
+
+
+              <tr>
+                <td>
+                  <%=l%>
+                </td>
+                <%l++%>
+                  <td>
+                    <%=plays.playlistName%>
+                  </td>
+                  <td>
+                    <%=plays.artist%>
+                  </td>
+
+
+                  <%  }) %>
+              </tr>
+
+          </table>
+    </div>
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+
+  </body>
+
+</html>
