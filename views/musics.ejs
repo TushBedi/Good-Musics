@@ -217,6 +217,25 @@
         <div class="card">
           <h2>Your Playlist</h2>
           <div class="fakeimg">Your playlist here</div>
+          
+   
+        <table style="width:100%">
+          <tr>
+            <th>Playlist</th>
+            <th>Action</th>
+            
+          </tr>
+              <%for(let i=0;i<allData.length;i++){%>
+            <tr>
+              <td><%=allData[i].playlistName%></td>
+              <td>
+                <a href="/musics/<%=allData[i].playlistName%>">delete</a>
+                <a href="/musics/<%=allData[i].playlistName%>/addMusic">Add Musics</a>
+              </td>
+             
+            </tr>
+          <%}%>
+          </table>
 
           <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
@@ -228,7 +247,7 @@
           <br/>
           <h2>Add Playlist</h2>
 
-          <a href="">ADD Playlist</a>
+          <a href="/musics/add">ADD Playlist</a>
 
         </div>
         <div class="card">
