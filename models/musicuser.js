@@ -17,4 +17,5 @@ module.exports = (sequelize, DataTypes) => {
     MusicUser.belongsTo(models.Music)
   };
   return MusicUser;
+  
 };
