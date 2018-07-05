@@ -18,7 +18,7 @@ var session = require('express-session')
 var admin = require("./routes/admin.js")
 const helperpass = require('./helperpass')
 
-
+app.locals.convert = require("./helperDate")
 
 
 // app.use session sec

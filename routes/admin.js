@@ -3,6 +3,7 @@ var router = express.Router()
 let models = require('../models')
 let User = models.User
 let Music = models.Music
+let Playlist = models.MusicUser
 
 
 router.get("/admin",function(req,res){
@@ -60,6 +61,18 @@ router.get("/admin/delete/:id",function(req,res){
     })
     .then(function(){
         res.redirect("/admin")
+    })
+})
+
+router.get("/admin/listUser",function(req,res){
+    User.findAll({
+        include : [Playlist],
+        // group : ["playlistName"]
+    })
+    .then(function(allData){
+        res.render("list-user",{allData})
+        // res.json(allData)
+
     })
 })
 
