@@ -317,7 +317,20 @@
   </head>
 
   <body>
-    //sini
+    <div class="topnav">
+      <a class="active" href="/musics">Home</a>
+      <a href="/musics/add">Create new Playlist</a>
+      <a href="/logout">Logout</a>
+      <div class="search-container">
+
+
+
+        <form action="/search" method="get">
+          <input name="keyword" type="text" placeholder="Search..">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
     <div class="header">
       <h2>GOOD MUSICS </h2>
     </div>
