@@ -3,7 +3,7 @@ var router = express.Router()
 
 
 router.get('/', function (req, res) {
-  res.send('MUSIC home page')
+  res.render('index')
 })
 
 module.exports = router

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+       
+    <h2>
+        <%=playlist[0].User.name%>
+    </h2>
+    <h2>
+        <%=playlist[0].playlistName%>
+
+    </h2>
+    
+    <table style="width:50%" border="1">
+            <tr>
+              <th>Title</th>
+              <th>Category</th> 
+              <th>Artist</th>
+              <th>Delete</th>
+            </tr>
+            <%for(let i=0;i<playlist.length;i++){%>
+                <%if(playlist[i].Music !== null){%>
+
+                    <tr>
+                      <td><%=playlist[i].Music.title%></td>
+                      <td><%=playlist[i].Music.category%></td> 
+                      <td><%=playlist[i].Music.artist%></td>
+                      <td>
+                          <a href="/musics/<%=playlist[i].Music.id%>/delete">Delete</a>
+                      </td>
+                    </tr>
+                <%}%>
+        <%}%>
+          </table>
+          <form action ="/musics/<%=playlist[0].playlistName%>/addMusic" method="POST">
+          <br><br>
+          LIST MUSICS :<br>
+          =======================================================================
+          <br>
+          <table style="width:50%" border="1">
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th> 
+                  <th>Artist</th>
+                  <th>Action</th>
+                </tr>
+                <%for(let i=0;i<dataMusic.length;i++){%>
+                        <tr>
+                          <td><%=dataMusic[i].title%></td>
+                          <td><%=dataMusic[i].category%></td> 
+                          <td><%=dataMusic[i].artist%></td>
+                          <td>
+                              <input type="radio" name="musicId" value="<%=dataMusic[i].id%>">
+                              <input type="submit" value ="add">
+                          </td>
+                        </tr>
+                
+            <%}%>
+              </table>
+            </form>
+
+
+          
+   
+        
+        
+        
+   
+</body>
+</html>
