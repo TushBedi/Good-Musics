@@ -7,9 +7,9 @@ let conj = models.MusicUser
 let lookup = null
 let Sequelize = require('sequelize')
 let Op = Sequelize.Op
+
+
 router.get('/search', function (req, res) {
-  console.log('%' + req.query.keyword + '%')
-  console.log('----------------\n')
 
   Music.findAll({
       where: {
@@ -36,7 +36,13 @@ router.get('/search', function (req, res) {
             })
             .then(function (artist) {
 
-              conj.findAll()
+              conj.findAll({
+                  where: {
+                    playlistName: {
+                      [Op.iLike]: '%' + req.query.keyword + '%'
+                    }
+                  }
+                })
                 .then(function (playlist) {
 
                   res.render('result', {
