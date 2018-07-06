@@ -4,6 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     UserId: DataTypes.INTEGER,
     MusicId: DataTypes.INTEGER,
     playlistName: {
+// <<<<<<< admin
+//       type : DataTypes.STRING,
+//       validate :  {
+//         notEmpty : {
+//           args : true,
+//           msg : "Playlist Name is required"
+//         }
+      
+// =======
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
@@ -11,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Playlist Name is required"
         }
 
+// >>>>>>> development
       }
     }
   }, {});

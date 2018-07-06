@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+<body>
+    user here
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Register</th>
+          <th>Playlist</th>
+        </tr>
+        <%for(let i=0;i<allData.length;i++){%>
+
+            <tr>
+              <td><%=allData[i].name%></td>
+              <td><%=convert(allData[i].createdAt)%></td>
+              <td>
+                  <ul>
+                  <%for(let j =0;j<allData[i].MusicUsers.length;j++){%>
+                    <li>
+                        <%=allData[i].MusicUsers[j].playlistName%>
+
+                    </li>
+                    <%}%>
+                </ul>
+            </td>
+            </tr>
+        <%}%>
+       
+      </table>
+</body>
+</html>

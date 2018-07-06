@@ -49,17 +49,24 @@ router.post('/register', function (req, res) {
 
 
 router.get('/login', function (req, res, next) {
-
-  if (req.session.current_user != null) {
-    res.redirect('/musics')
-  } else {
-    next()
-  }
+  // console.log("============",req.session.current_user.name)
+  // if(req.session.current_user.name == "admin"){
+  //   res.resdirect("/admin")
+  // }else{
+    if (req.session.current_user != null) {
+      res.redirect('/musics')
+    } else {
+      next()
+    }
+  
+ 
 }, function (req, res) {
   res.render('login', {
     msg: null
   })
 })
+
+
 
 
 
@@ -72,6 +79,10 @@ router.post('/login', function (req, res) {
       }
     })
     .then(function (userr) {
+// <<<<<<< admin
+      // console.log('---------------', userr)
+// =======
+// >>>>>>> development
       if (userr) {
 
         let pass = bcrypt.compareSync(req.body.password, userr.password);
