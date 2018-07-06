@@ -2,10 +2,141 @@
 <html>
 
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      #title {
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body {
+        background: #C02425;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #F0CB35, #C02425);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #F0CB35, #C02425);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .container {
+
+        width: 90%;
+      }
+
+      .raisa {
+        width: 80%;
+        height: auto
+      }
+
+      .effect8 {
+        position: relative;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+      }
+
+      .effect8:before,
+      .effect8:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        top: 10px;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+      }
+
+      .effect8:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #4CAF50;
+      }
+
+      #names {
+        margin: 100px;
+        margin-bottom: 10px !important
+      }
+
+      body {
+        font-family: Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 60%;
+        background: #f1f1f1;
+      }
+
+      form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+      }
+
+      form.example button:hover {
+        background: #0b7dda;
+      }
+
+      form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      #title {
         margin-top: 50px
       }
 
@@ -28,7 +159,6 @@
       tr:nth-child(even) {
         background-color: #f2f2f2
       }
-
 
       * {
         box-sizing: border-box;
@@ -110,11 +240,99 @@
           padding: 0;
         }
       }
+
+
+
+
+      .topnav {
+        overflow: hidden;
+        background-color: #e9e9e9;
+      }
+
+      .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #2196F3;
+        color: white;
+      }
+
+      .topnav .search-container {
+        float: right;
+      }
+
+      .topnav input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+      }
+
+      .topnav .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .topnav .search-container button:hover {
+        background: #ccc;
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav .search-container {
+          float: none;
+        }
+        .topnav a,
+        .topnav input[type=text],
+        .topnav .search-container button {
+          float: none;
+          display: block;
+          text-align: left;
+          width: 100%;
+          margin: 0;
+          padding: 14px;
+        }
+        .topnav input[type=text] {
+          border: 1px solid #ccc;
+        }
+      }
     </style>
   </head>
 
   <body>
 
+
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="/musics/add">Create new Playlist</a>
+      <a href="/logout">Logout</a>
+      <div class="search-container">
+
+
+
+        <form action="/search" method="get">
+          <input name="keyword" type="text" placeholder="Search..">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
     <div class="header">
       <h2>GOOD MUSICS </h2>
     </div>
@@ -122,12 +340,19 @@
     <div class="row">
       <div class="leftcolumn">
         <div class="card">
+          <form class="example" action="/search" method="get">
+            <input name="keyword" type="text" placeholder="Search..">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
 
-          Welcome, <b><%=cek.name%></b>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <hr/>
 
-          <h2 id="title" align="center">List of Available Musics to Play</h2>
-          <table>
+          <h2 id="title" align="center">List of Available Musics to Play 🎶</h2>
+          <table class="box effect8">
             <tr>
               <th>No</th>
               <th>Title</th>
@@ -137,10 +362,6 @@
             </tr>
 
             <% dataMusic.forEach(function(music, idx){ %>
-
-
-
-
               <tr>
                 <td>
                   <%=idx+1%>
@@ -155,62 +376,95 @@
                   <%=music.artist%>
                 </td>
                 <td>
-                  Play</td>
 
+
+
+
+
+
+
+                  <button type="button" id="button_play" class="btn" onclick='buttonPlayPress()'>
+                        <i class="fa fa-play"></i>
+                      </button></td>
               </tr>
-
               <% }) %>
           </table>
         </div>
         <div class="card">
-          <h2>Your Playlist</h2>
-          <div class="fakeimg">Your playlist here</div>
-          
-   
-        <table style="width:100%">
-          <tr>
-            <th>Playlist</th>
-            <th>Action</th>
-            
-          </tr>
-              <%for(let i=0;i<allData.length;i++){%>
-            <tr>
-              <td><%=allData[i].playlistName%></td>
-              <td>
-                <a href="/musics/<%=allData[i].playlistName%>">delete</a>
-                <a href="/musics/<%=allData[i].playlistName%>/addMusic">Add Musics</a>
-              </td>
-             
-            </tr>
-          <%}%>
-          </table>
 
-          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-      </div>
-      <div class="rightcolumn">
-        <div class="card">
-          <a href="/logout">logout</a>
-          <hr/>
-          <br/>
-          <h2>Add Playlist</h2>
+          <% let save = [] %>
 
-          <a href="/musics/add">ADD Playlist</a>
+            <%for(let i=0; i < allData.length; i++){ %>
+              <% if(save.includes(allData[i].playlistName) == false){ %>
+                <% save.push(allData[i].playlistName) %>
+                  <% } %>
+                    <% } %>
+
+                      <h2>You have <%=save.length%> Playlist</h2>
+                      <div class="container">
+
+                        <%for(let i=0;i<save.length;i++){%>
+                          <div class="col-md-4">
+                            <div class="thumbnail">
+                              <a href="/musics/<%=save[i]%>/addMusic" target="_blank">
+                    <img class="raisa" src="https://yt3.ggpht.com/a-/ACSszfELCymkAe3wJM7CZg38RR6qG3VatLrb3WQbrA=s900-mo-c-c0xffffffff-rj-k-no"/>
+                    <div class="caption">
+                      </a>
+
+                              <div class="panel panel-default">
+                                <div class="panel-body">
+                                  <%=save[i]%>
+                                </div>
+                              </div>
+
+                              <a href="/musics/<%=save[i]%>"><button type="button" class="btn btn-warning">Delete</button></a>
+
+                              <a href="/musics/<%=save[i]%>/addMusic"><button  class="btn btn-success" type="button" >Add Musics</button> </a>
+
+                            </div>
+
+                          </div>
+
+                      </div>
+                      <%}%>
 
         </div>
-        <div class="card">
-          <h3>Popular Post</h3>
-          <div class="fakeimg">Image</div><br>
-          <div class="fakeimg">Image</div><br>
-          <div class="fakeimg">Image</div>
-        </div>
+
 
       </div>
+    </div>
+    <div class="rightcolumn">
+
+      <div class="card">
+
+        <font color="red">
+          <h3>Welcome,
+        <%=cek.name%></h3>
+        </font><br/>
+
+
+        <br/>
+
+
+      </div>
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div>
+      </div>
+
+    </div>
     </div>
 
     <div class="footer">
       <h2>Good Musics</h2>
     </div>
+
+
+
+
+
 
   </body>
 

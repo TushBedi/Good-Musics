@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+<body>
+    admin here
+    <a href ="/admin/listUser">List User</a>
+    <br><br>
+    <form action="/admin" method="POST">
+        Title:<br>
+        <input type="text" name="title" >
+        <br>
+        Category:<br>
+        <input type="text" name="category">
+        <br><br>
+        Artist:<br>
+        <input type="text" name="artist">
+        <br><br>
+ 
+        <input type="submit" value="Submit">
+      </form> 
+
+
+      <br><br>
+    <table>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Artis</th>
+          <th>Action</th>
+        </tr>
+        <%dataMusic.forEach(function(music){%>
+
+            <tr>
+              <td><%=music.title%></td>
+              <td><%=music.category%></td>
+              <td><%=music.artist%></td>
+              <td>
+                  <a href="/admin/editMusic/<%=music.id%>">Edit</a>
+                  <a href="/admin/delete/<%=music.id%>">Delete</a>
+              </td>
+            </tr>
+        <%})%>
+   
+      </table>
+</body>
+</html>

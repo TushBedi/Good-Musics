@@ -4,10 +4,23 @@ module.exports = (sequelize, DataTypes) => {
     UserId: DataTypes.INTEGER,
     MusicId: DataTypes.INTEGER,
     playlistName: {
-      type : DataTypes.STRING,
-      validate : {
-        args : true,
-        msg : "Playlist Name is required"
+// <<<<<<< admin
+//       type : DataTypes.STRING,
+//       validate :  {
+//         notEmpty : {
+//           args : true,
+//           msg : "Playlist Name is required"
+//         }
+      
+// =======
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "Playlist Name is required"
+        }
+
+// >>>>>>> development
       }
     }
   }, {});
@@ -17,4 +30,5 @@ module.exports = (sequelize, DataTypes) => {
     MusicUser.belongsTo(models.Music)
   };
   return MusicUser;
+
 };
