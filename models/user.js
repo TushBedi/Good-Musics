@@ -45,14 +45,16 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function (models) {
     // associations can be defined here
-// <<<<<<< admin
-    User.belongsToMany(models.Music,{through : "MusicUser"})
+    // <<<<<<< admin
+    User.belongsToMany(models.Music, {
+      through: "MusicUser"
+    })
     User.hasMany(models.MusicUser)
-// =======
-//     User.belongsToMany(models.Music, {
-//       through: "MusicUser"
-//     })
-// >>>>>>> development
+    // =======
+    //     User.belongsToMany(models.Music, {
+    //       through: "MusicUser"
+    //     })
+    // >>>>>>> development
   };
 
 
@@ -60,26 +62,26 @@ module.exports = (sequelize, DataTypes) => {
 
 
 
-  // Instance Method
-  User.prototype.getSay = function () {
-
-    return 'coba-' + this.name
-
-    // return `${this.first_name} ${this.last_name}`
-    //
-    // var today = new Date()
-    // var curHr = today.getHours()
-    //
-    // if (curHr < 12) {
-    //   console.log('good morning')
-    // } else if (curHr < 18) {
-    //   console.log('good afternoon')
-    // } else {
-    //   console.log('good evening')
-    // }
-
-
-  }
+  // // Instance Method
+  // User.prototype.getSay = function () {
+  //
+  //   return 'coba-' + this.name
+  //
+  //   // return `${this.first_name} ${this.last_name}`
+  //   //
+  //   // var today = new Date()
+  //   // var curHr = today.getHours()
+  //   //
+  //   // if (curHr < 12) {
+  //   //   console.log('good morning')
+  //   // } else if (curHr < 18) {
+  //   //   console.log('good afternoon')
+  //   // } else {
+  //   //   console.log('good evening')
+  //   // }
+  //
+  //
+  // }
 
 
 
