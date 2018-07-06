@@ -1,4 +1,6 @@
 'use strict';
+var bcrypt = require('bcrypt');
+
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     name: {
@@ -32,11 +34,25 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     }
-  }, {});
+  }, {
+    hooks: {
+      beforeCreate: (User, option) => {
+        var salt = bcrypt.genSaltSync(7);
+        var hash = bcrypt.hashSync(User.password, salt);
+        User.password = hash
+      }
+    }
+  });
   User.associate = function (models) {
     // associations can be defined here
+// <<<<<<< admin
     User.belongsToMany(models.Music,{through : "MusicUser"})
     User.hasMany(models.MusicUser)
+// =======
+//     User.belongsToMany(models.Music, {
+//       through: "MusicUser"
+//     })
+// >>>>>>> development
   };
 
 

@@ -15,7 +15,11 @@ let user = require('./routes/users.js')
 let music = require('./routes/musics')
 var bodyParser = require('body-parser')
 var session = require('express-session')
+// <<<<<<< admin
 var admin = require("./routes/admin.js")
+// ======= 
+const bcrypt = require('bcrypt')
+// >>>>>>> development
 const helperpass = require('./helperpass')
 
 app.locals.convert = require("./helperDate")

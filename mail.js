@@ -15,7 +15,7 @@ let kirim = function (email, user) {
     from: 'goodmusicsApp@address.com', // sender address
     to: email, // list of receivers
     subject: 'Welcome to the good Apps ', // Subject line
-    html: '<p>Hi ' + user + ', welcome to the Good Apps!.  Enjoy our apps and listening all musics </p>' // plain text body
+    html: '<img src="https://www.schoolchalao.com/app/webroot/img/schoolfacility/school-chalao-music-room.png"/> <br/><p>Hi <b>' + user + '</b>, welcome to the Good Apps!.  Enjoy our Apps and choose music provided </p>' // plain text body
   };
 
 
