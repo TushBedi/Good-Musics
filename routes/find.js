@@ -19,6 +19,7 @@ router.get('/search', function (req, res) {
       }
     })
     .then(function (category) {
+      // res.send(category)
       Music.findAll({
           where: {
             title: {

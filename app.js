@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const port = process.env.PORT || 4000;
 let ejs = require('ejs')
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({
@@ -17,7 +17,7 @@ var bodyParser = require('body-parser')
 var session = require('express-session')
 // <<<<<<< admin
 var admin = require("./routes/admin.js")
-// ======= 
+// =======
 const bcrypt = require('bcrypt')
 // >>>>>>> development
 const helperpass = require('./helperpass')
@@ -32,7 +32,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: {}
 }))
-app.use("/",admin)
+app.use("/", admin)
 
 
 //

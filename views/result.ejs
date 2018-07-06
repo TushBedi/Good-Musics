@@ -216,6 +216,7 @@
     </div>
 
     <div id="judul" class="tabcontent">
+
       <% let j = 1 %>
         <h3>Title</h3>
 
@@ -226,23 +227,27 @@
             <th>Artist</th>
             <th>Category</th>
           </tr>
-          <tr>
-            <td>
-              <%=j%>
-                <i class="fas fa-play-circle"></i>
-            </td>
-            <%j++%>
-              <td>
-                <%=judul.title%>
-              </td>
-              <td>
-                <%=judul.artist%>
-              </td>
-              <td>
-                <%=judul.category%>
-              </td>
+          <%  judul.forEach(function(data){ %>
 
-          </tr>
+
+            <tr>
+              <td>
+                <%=j%>
+                  <i class="fas fa-play-circle"></i>
+              </td>
+              <%j++%>
+                <td>
+                  <%=data.title%>
+                </td>
+                <td>
+                  <%=data.artist%>
+                </td>
+                <td>
+                  <%=data.category%>
+                </td>
+
+                <%  }) %>
+            </tr>
 
         </table>
     </div>
